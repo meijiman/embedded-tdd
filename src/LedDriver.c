@@ -16,11 +16,15 @@ void LedDriver_Create(uint16_t * address) {
 }
 
 void LedDriver_TurnOn(int ledNumber) {
+	if (ledNumber <= 0 || ledNumber > 16)
+		return;
 	ledsImage |= 1 << (ledNumber - 1);	
 	*ledsAddress = ledsImage;
 }
 
 void LedDriver_TurnOff(int ledNumber) {
+	if (ledNumber <= 0 || ledNumber > 16)
+		return;
 	ledsImage &= ~(1 << (ledNumber - 1));
 	*ledsAddress = ledsImage;
 }
