@@ -14,6 +14,7 @@ TEST_CFLAGS = -g
 TEST_CFLAGS += -Wall
 
 tests: $(TD)/$(PRJ)
+	$<	
 
 $(TD)/$(PRJ): $(TEST_OBJS)
 	$(TEST_CC) $(TEST_CFLAGS) $(TEST_INC) $(TEST_OBJS) -o $@ 
